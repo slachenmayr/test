@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="icon" type="image/x-icon" img src="logo.jpg">
+    <link rel="icon" type="image/x-icon" img src="Logo.jpg">
     <title>Lachenmayr Construction</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@700&family=Teko:wght@700&display=swap" rel="stylesheet">
     
@@ -22,80 +22,82 @@
             background-color: #f4f4f4;
         }
 /* Banner */
-.banner {
+
+
+    * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Teko', sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        /* Banner */
+        .banner {
     background: #5a5a5a;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    padding: 0px 0px;
+    justify-content: center;
     position: sticky;
     top: 0;
     width: 100%;
     z-index: 1000;
+    padding: 10px 20px;
 }
 
-/* Logo on the left (pops out slightly) */
+/* Logo */
 .banner .logo {
-    max-width: 300px; /* Adjust size as needed */
+    max-width: 150px; /* Adjust size as needed */
     height: auto;
     position: relative;
-    z-index: 2; /* Layer above buttons */
-    transform: translateY(10px); /* Makes it pop out */
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    left: 10px;
-    Flex-wrap: wrap;
 }
 
-/* Container for image and buttons */
-.banner-content {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-}
-
-/* BGB Image - layered over buttons */
-.banner-content .bgb-image {
-    max-width: 130px; /* Similar to button height */
-    height: auto;
+/* Menu Button */
+.menu-button {
     position: absolute;
-    right: 110px; /* Adjust based on layout */
-    z-index: 1; /* Layer above buttons */
-    border-radius: 10px;
-    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* Navigation Buttons */
-.button-container {
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    margin-left: 170px; /* Pushes buttons to the right of BGB image */
-    position: relative;
-    z-index: 1; /* Keeps buttons behind BGB */
-    
-}
-
-.button-container button {
-    background-color: rgb(255, 255, 255);
-    color: black;
+    right: 15px;
+    background: #fff;
     border: none;
-    padding: 15px 30px;
-    font-size: 1.3em;
+    font-size: 24px;
+    padding: 10px;
     cursor: pointer;
-    margin: 10px;
     border-radius: 5px;
-    transition: 0.3s;
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
 }
-.button-container button:hover {
-    background-color: #001370;
-    transform: scale(1.05);
-    Color: rgb(182, 182, 182)
+
+/* Menu (Hidden by Default) */
+.menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    width: 200px;
+    padding: 10px;
 }
 
-    
+.menu a {
+    text-decoration: none;
+    color: black;
+    padding: 2px 10px;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    background: #011ca3;
+    color: whitesmoke;
+    transition: 0.3s;
+    padding-left: 10px;
+    border-radius: 10px;
+}
+
 
         /* Hero Section */
             .hero {
@@ -136,6 +138,7 @@
             transform: scale(1.05);
             background-color: #c0c0c0;
             Color:  #001370;
+            transition: 0.3s;
         }
 
         .photo-card img {
@@ -198,6 +201,7 @@
             width: 40px;
             height: 40px;
             margin: 10px;
+            border-radius: 5px;
         }
 
         @media (max-width: 768px) {
@@ -219,22 +223,23 @@ img {
 }
 
 
-    </style>
+</style>
 </head>
-
 <body>
     <header class="banner">
-        <img src="logo.jpg" alt="Lachenmayr Construction LLC" class="logo">
-        <div class="banner-content">
-            <!--img src="BGB.jpg" alt="Side Image" class="bgb-image"-->
-            <nav class="button-container">
-                <a href="Services.html"><button>Services</button></a>
-                <a href="About-us.html"><button>About Us</button></a>
-                <a href="gallery.html"><button>Gallery</button></a>
-                <a href="contact.html"><button>Contact Us</button></a>
-            </nav>
-        </div>
+        <img src="Logo.jpg" alt="Lachenmayr Construction LLC" class="logo">
+        <button class="menu-button" onclick="toggleMenu()">☰</button>
+        <nav id="menu" class="menu">
+            <a href="Services.html">Services</a>
+            <a href="About-us.html">About Us</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
     </header>
+
+
+
+        
 
     <!-- Hero Section -->
     <div class="hero">
@@ -292,6 +297,12 @@ img {
         <p>&copy;Lachenmayr Construction LLC., Established 1992 | <a href="contact.html">Contact Us</a></p>
     </div>
 
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menu");
+            menu.style.display = (menu.style.display === "block") ? "none" : "block";
+        }
+        </script>
 </body>
 </html>
 
